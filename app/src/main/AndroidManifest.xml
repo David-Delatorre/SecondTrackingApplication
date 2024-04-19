@@ -20,12 +20,12 @@
         android:theme="@style/Theme.BackgroundLocationTracking"
         tools:targetApi="31">
         <service android:name=".LocationService" android:foregroundServiceType="location" />
-        <receiver android:name=".ui.theme.LocationReceiver"
+        <receiver android:name=".LocationReceiver"
             android:exported="true"
             android:permission="TODO"
             tools:ignore="ExportedReceiver">
             <intent-filter>
-                <action android:name="com.example.ACTION_SEND_LOCATION" />
+                <action android:name="ACTION_SEND_LOCATION" />
             </intent-filter>
         </receiver>
         <activity

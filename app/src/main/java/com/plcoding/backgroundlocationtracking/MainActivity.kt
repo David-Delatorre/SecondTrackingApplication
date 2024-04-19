@@ -1,7 +1,11 @@
 package com.plcoding.backgroundlocationtracking
 
 import android.Manifest
+import android.annotation.SuppressLint
+import android.content.BroadcastReceiver
+import android.content.Context
 import android.content.Intent
+import android.content.IntentFilter
 import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.ComponentActivity
@@ -22,8 +26,15 @@ import androidx.core.app.ActivityCompat
 import com.plcoding.backgroundlocationtracking.ui.theme.BackgroundLocationTrackingTheme
 
 class MainActivity : ComponentActivity() {
+
+    private val locationReceiver = LocationReceiver()
+    @SuppressLint("UnspecifiedRegisterReceiverFlag")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        registerReceiver(
+            locationReceiver,
+            IntentFilter("ACTION_SEND_LOCATION")
+        )
         ActivityCompat.requestPermissions(
             this,
             arrayOf(
@@ -44,9 +55,6 @@ class MainActivity : ComponentActivity() {
                         }
                     }) {
                         Text(text = "Start")
-                        Toast.makeText(applicationContext,
-                            "Turn on Notifications",
-                            Toast.LENGTH_SHORT).show()
                     }
                     Spacer(modifier = Modifier.height(16.dp))
                     Button(onClick = {
@@ -61,4 +69,11 @@ class MainActivity : ComponentActivity() {
             }
         }
     }
+
+
+    override fun onDestroy() {
+        super.onDestroy()
+        unregisterReceiver(locationReceiver)
+    }
+
 }
