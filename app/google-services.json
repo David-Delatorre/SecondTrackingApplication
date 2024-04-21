@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "129002134360",
+    "project_id": "secondtrackingapplication",
+    "storage_bucket": "secondtrackingapplication.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:129002134360:android:638e554da8b1c09d43632d",
+        "android_client_info": {
+          "package_name": "com.plcoding.SecondTrackingApplication"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCfbnwbceXooNhjo_s8k5AkNl0sAkvJc7M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
