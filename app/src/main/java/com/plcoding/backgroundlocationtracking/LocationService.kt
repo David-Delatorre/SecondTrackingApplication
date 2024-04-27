@@ -67,7 +67,7 @@ class LocationService: Service() {
                     "Location: ($lat, $long)"
                 )
 
-
+                // Create location object
                 val locationObj = LocationObj(lat, long)
                 val newDatabaseReference = databaseReference.push()
                 // we are using add value event listener method
