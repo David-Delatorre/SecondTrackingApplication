@@ -27,6 +27,7 @@ import com.plcoding.backgroundlocationtracking.ui.theme.BackgroundLocationTracki
 
 class MainActivity : ComponentActivity() {
 
+    private val smsReceiver = SMSReceiver()
     private val locationReceiver = LocationReceiver()
     @SuppressLint("UnspecifiedRegisterReceiverFlag")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -34,6 +35,10 @@ class MainActivity : ComponentActivity() {
         registerReceiver(
             locationReceiver,
             IntentFilter("ACTION_SEND_LOCATION")
+        )
+        registerReceiver(
+            smsReceiver,
+            IntentFilter("ACTION_SEND_SMS")
         )
         ActivityCompat.requestPermissions(
             this,
@@ -74,6 +79,7 @@ class MainActivity : ComponentActivity() {
     override fun onDestroy() {
         super.onDestroy()
         unregisterReceiver(locationReceiver)
+        unregisterReceiver(smsReceiver)
     }
 
 }

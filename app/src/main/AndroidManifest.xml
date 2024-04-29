@@ -28,6 +28,14 @@
                 <action android:name="ACTION_SEND_LOCATION" />
             </intent-filter>
         </receiver>
+        <receiver android:name=".SMSReceiver"
+            android:exported="true"
+            android:permission="TODO"
+            tools:ignore="ExportedReceiver">
+            <intent-filter>
+                <action android:name="ACTION_SEND_SMS" />
+            </intent-filter>
+        </receiver>
         <activity
             android:name=".MainActivity"
             android:exported="true"
